@@ -9,9 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#050505",
+        background: "#0a0a0a",
         foreground: "#ffffff",
-        accent: "#D4AF37",
+        accent: "#3b82f6", // Electric Blue
+        "accent-purple": "#a855f7", // Soft Purple alternative
       },
       fontFamily: {
         serif: ["var(--font-cormorant)", "serif"],

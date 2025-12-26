@@ -1,20 +1,21 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import BentoGrid from "@/components/BentoGrid";
-import Portfolio from "@/components/Portfolio";
-import Process from "@/components/Process";
-import Contact from "@/components/Contact";
+import TrustedBy from "@/components/TrustedBy";
+import Features from "@/components/Features";
+import Pricing from "@/components/Pricing";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      <BentoGrid />
-      <Portfolio />
-      <Process />
-      <Contact />
+      <TrustedBy />
+      <Features />
+      <Pricing />
+      <FAQ />
+      <Footer />
     </main>
   );
 }
-

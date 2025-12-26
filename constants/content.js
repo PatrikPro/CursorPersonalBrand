@@ -1,119 +1,202 @@
 export const content = {
   nav: {
+    logo: "Product",
     links: [
-      { label: "About", href: "#about" },
-      { label: "Portfolio", href: "#portfolio" },
-      { label: "Process", href: "#process" },
-      { label: "Contact", href: "#contact" },
+      { label: "Features", href: "#features" },
+      { label: "Pricing", href: "#pricing" },
+      { label: "FAQ", href: "#faq" },
     ],
+    cta: "Get Started",
   },
   hero: {
-    headline: "I turn your expertise into your greatest asset.",
-    cta: "Book a Consultation",
-    socialProof: [
-      "Fortune 500 CEOs trust my voice",
-      "100M+ impressions generated",
-      "Award-winning ghostwriter",
+    headline: "Build something amazing",
+    subheadline: "The all-in-one platform for modern teams",
+    description:
+      "Streamline your workflow, collaborate seamlessly, and ship faster with our powerful suite of tools.",
+    cta: "Get Started",
+    ctaSecondary: "Watch Demo",
+  },
+  trustedBy: {
+    title: "Trusted by leading companies",
+    logos: [
+      "Company 1",
+      "Company 2",
+      "Company 3",
+      "Company 4",
+      "Company 5",
+      "Company 6",
     ],
   },
-  results: {
-    title: "Results That Speak",
-    stats: [
-      {
-        label: "Threads Ghostwritten",
-        value: "500+",
-        description: "High-performing content pieces",
-      },
-      {
-        label: "Impressions Generated",
-        value: "100M+",
-        description: "Across all platforms",
-      },
-      {
-        label: "CEO Clients",
-        value: "50+",
-        description: "Fortune 500 leaders",
-      },
-    ],
-  },
-  portfolio: {
-    title: "Featured Work",
+  features: {
+    title: "Everything you need to succeed",
+    subtitle: "Powerful features designed for modern teams",
     items: [
       {
-        title: "Tech Leadership Series",
-        client: "Fortune 500 CEO",
-        description: "A 12-part thought leadership series that generated 2M+ impressions",
-        category: "Thought Leadership",
+        title: "Real-time Collaboration",
+        description:
+          "Work together seamlessly with real-time updates and instant notifications.",
+        icon: "MessageSquare",
+        size: "large", // For bento grid
       },
       {
-        title: "Personal Brand Transformation",
-        client: "Serial Entrepreneur",
-        description: "Complete rebrand through strategic content positioning",
-        category: "Brand Strategy",
+        title: "Advanced Analytics",
+        description: "Get insights into your team's performance and productivity.",
+        icon: "BarChart",
+        size: "medium",
       },
       {
-        title: "Viral Thread Campaign",
-        client: "Industry Expert",
-        description: "Single thread that reached 5M+ impressions in 48 hours",
-        category: "Social Media",
+        title: "Secure & Private",
+        description:
+          "Enterprise-grade security to keep your data safe and compliant.",
+        icon: "Shield",
+        size: "medium",
       },
       {
-        title: "Executive Memoir",
-        client: "C-Suite Executive",
-        description: "Ghostwritten memoir capturing 30 years of industry insights",
-        category: "Long-Form",
+        title: "Custom Integrations",
+        description:
+          "Connect with your favorite tools and automate your workflow.",
+        icon: "Plug",
+        size: "small",
+      },
+      {
+        title: "Mobile First",
+        description: "Access everything you need from any device, anywhere.",
+        icon: "Smartphone",
+        size: "small",
+      },
+      {
+        title: "24/7 Support",
+        description:
+          "Get help whenever you need it with our dedicated support team.",
+        icon: "Headphones",
+        size: "small",
       },
     ],
   },
-  process: {
-    title: "The Process",
-    steps: [
-      {
-        number: "01",
-        title: "Discovery",
-        description:
-          "Deep dive into your expertise, voice, and goals. We uncover what makes your perspective unique.",
-      },
-      {
-        number: "02",
-        title: "Strategy",
-        description:
-          "Craft a content strategy that aligns with your brand and amplifies your authority in your field.",
-      },
-      {
-        number: "03",
-        title: "Creation",
-        description:
-          "I write in your voice, ensuring every piece feels authentically you while maximizing impact.",
-      },
-      {
-        number: "04",
-        title: "Refinement",
-        description:
-          "Collaborative editing process to perfect every word until it's ready to publish.",
-      },
-      {
-        number: "05",
-        title: "Launch",
-        description:
-          "Your content goes live, positioned to generate maximum engagement and establish your authority.",
-      },
-    ],
-  },
-  contact: {
-    title: "Let's Create Something Exceptional",
-    subtitle: "Ready to transform your expertise into compelling content?",
-    form: {
-      email: {
-        label: "Email",
-        placeholder: "your.email@example.com",
-      },
-      message: {
-        label: "Message",
-        placeholder: "Tell me about your project...",
-      },
-      submit: "Send Message",
+  pricing: {
+    title: "Simple, transparent pricing",
+    subtitle: "Choose the plan that's right for you",
+    toggle: {
+      monthly: "Monthly",
+      yearly: "Yearly",
+      savings: "Save 20%",
     },
+    plans: [
+      {
+        name: "Starter",
+        price: { monthly: 29, yearly: 24 },
+        description: "Perfect for individuals and small teams",
+        features: [
+          "Up to 5 team members",
+          "10GB storage",
+          "Basic integrations",
+          "Email support",
+          "Mobile app access",
+        ],
+        cta: "Get Started",
+        popular: false,
+      },
+      {
+        name: "Professional",
+        price: { monthly: 99, yearly: 79 },
+        description: "For growing teams and businesses",
+        features: [
+          "Up to 25 team members",
+          "100GB storage",
+          "Advanced integrations",
+          "Priority support",
+          "Mobile app access",
+          "Advanced analytics",
+          "Custom workflows",
+        ],
+        cta: "Get Started",
+        popular: true,
+      },
+      {
+        name: "Enterprise",
+        price: { monthly: 299, yearly: 239 },
+        description: "For large organizations",
+        features: [
+          "Unlimited team members",
+          "Unlimited storage",
+          "All integrations",
+          "24/7 phone support",
+          "Mobile app access",
+          "Advanced analytics",
+          "Custom workflows",
+          "Dedicated account manager",
+          "SLA guarantee",
+        ],
+        cta: "Contact Sales",
+        popular: false,
+      },
+    ],
+  },
+  faq: {
+    title: "Frequently asked questions",
+    subtitle: "Everything you need to know",
+    items: [
+      {
+        question: "How does the free trial work?",
+        answer:
+          "You get full access to all features for 14 days. No credit card required. Cancel anytime during the trial.",
+      },
+      {
+        question: "Can I change plans later?",
+        answer:
+          "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.",
+      },
+      {
+        question: "What payment methods do you accept?",
+        answer:
+          "We accept all major credit cards, PayPal, and bank transfers for enterprise plans.",
+      },
+      {
+        question: "Is there a setup fee?",
+        answer:
+          "No, there are no setup fees. You only pay for your chosen plan.",
+      },
+      {
+        question: "Do you offer refunds?",
+        answer:
+          "Yes, we offer a 30-day money-back guarantee. Contact support for a full refund.",
+      },
+      {
+        question: "How secure is my data?",
+        answer:
+          "We use enterprise-grade encryption and follow industry best practices. Your data is stored securely and backed up regularly.",
+      },
+    ],
+  },
+  footer: {
+    newsletter: {
+      title: "Stay updated",
+      description: "Get the latest news and updates delivered to your inbox.",
+      placeholder: "Enter your email",
+      button: "Subscribe",
+    },
+    links: {
+      product: [
+        { label: "Features", href: "#features" },
+        { label: "Pricing", href: "#pricing" },
+        { label: "Integrations", href: "#integrations" },
+      ],
+      company: [
+        { label: "About", href: "#about" },
+        { label: "Blog", href: "#blog" },
+        { label: "Careers", href: "#careers" },
+      ],
+      resources: [
+        { label: "Documentation", href: "#docs" },
+        { label: "Support", href: "#support" },
+        { label: "API", href: "#api" },
+      ],
+      legal: [
+        { label: "Privacy", href: "#privacy" },
+        { label: "Terms", href: "#terms" },
+        { label: "Security", href: "#security" },
+      ],
+    },
+    copyright: "© 2024 Product. All rights reserved.",
   },
 };
-
