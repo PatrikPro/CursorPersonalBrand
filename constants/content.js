@@ -16,6 +16,39 @@ export const content = {
     cta: "Get Started",
     ctaSecondary: "Watch Demo",
   },
+  stats: {
+    title: "Trusted by teams worldwide",
+    items: [
+      {
+        value: 10000,
+        suffix: "+",
+        label: "Active Users",
+        description: "Growing daily",
+        percentage: 95,
+      },
+      {
+        value: 2,
+        suffix: "M+",
+        label: "Revenue Generated",
+        description: "For our customers",
+        percentage: 88,
+      },
+      {
+        value: 99.9,
+        suffix: "%",
+        label: "Uptime",
+        description: "Reliability guarantee",
+        percentage: 99.9,
+      },
+      {
+        value: 50,
+        suffix: "+",
+        label: "Countries",
+        description: "Global reach",
+        percentage: 75,
+      },
+    ],
+  },
   trustedBy: {
     title: "Trusted by leading companies",
     logos: [
@@ -70,6 +103,66 @@ export const content = {
           "Get help whenever you need it with our dedicated support team.",
         icon: "Headphones",
         size: "small",
+      },
+    ],
+  },
+  testimonials: {
+    title: "What our customers say",
+    subtitle: "Join thousands of satisfied users",
+    items: [
+      {
+        name: "Sarah Johnson",
+        role: "CEO",
+        company: "TechCorp",
+        avatar: "SJ",
+        rating: 5,
+        quote:
+          "This product has completely transformed how our team collaborates. The real-time features are game-changing.",
+      },
+      {
+        name: "Michael Chen",
+        role: "Product Manager",
+        company: "StartupXYZ",
+        avatar: "MC",
+        rating: 5,
+        quote:
+          "Incredible value for the price. The analytics dashboard alone is worth it. Highly recommend!",
+      },
+      {
+        name: "Emily Rodriguez",
+        role: "CTO",
+        company: "InnovateLabs",
+        avatar: "ER",
+        rating: 5,
+        quote:
+          "The security features give us peace of mind. Enterprise-grade protection at an affordable price.",
+      },
+      {
+        name: "David Kim",
+        role: "Founder",
+        company: "ScaleUp",
+        avatar: "DK",
+        rating: 5,
+        quote:
+          "Best investment we've made this year. The ROI was immediate and continues to grow.",
+      },
+      {
+        name: "Lisa Anderson",
+        role: "Operations Director",
+        company: "GlobalTech",
+        avatar: "LA",
+        rating: 5,
+        quote:
+          "The mobile app is flawless. Our team can work from anywhere seamlessly. Love it!",
+      },
+      {
+        name: "James Wilson",
+        role: "Head of Engineering",
+        company: "DevOps Inc",
+        avatar: "JW",
+        rating: 5,
+        quote:
+          "Integration was a breeze. Connected with all our existing tools in minutes. Brilliant!",
       },
     ],
   },
@@ -167,6 +260,17 @@ export const content = {
           "We use enterprise-grade encryption and follow industry best practices. Your data is stored securely and backed up regularly.",
       },
     ],
+  },
+  cta: {
+    title: "Ready to get started?",
+    subtitle: "Join thousands of teams already using our platform",
+    description: "Start your free trial today. No credit card required.",
+    cta: "Start Free Trial",
+    ctaSecondary: "Schedule Demo",
+    urgency: {
+      text: "Limited spots available this month",
+      countdown: false,
+    },
   },
   footer: {
     newsletter: {

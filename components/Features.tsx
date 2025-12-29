@@ -5,6 +5,7 @@ import { content } from "@/constants/content";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import * as LucideIcons from "lucide-react";
+import { use3DTilt } from "@/hooks/use3DTilt";
 
 export default function Features() {
   const ref = useRef(null);
@@ -69,19 +70,33 @@ export default function Features() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {content.features.items.map((feature, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.03,
-                y: -5,
-                transition: { duration: 0.3, ease: "easeOut" },
-              }}
-              className={`bg-background/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:border-accent/50 transition-all cursor-pointer ${getSizeClasses(
-                feature.size
-              )}`}
-            >
+          {content.features.items.map((feature, index) => {
+            const { cardRef, handleMouseMove, handleMouseLeave, style } = use3DTilt({
+              maxRotation: 8,
+            });
+
+            return (
+              <motion.div
+                key={index}
+                ref={cardRef}
+                variants={itemVariants}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                whileHover={{
+                  y: -5,
+                  transition: { duration: 0.3, ease: "easeOut" },
+                }}
+                style={style}
+                className={`bg-background/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:border-accent/50 transition-all cursor-pointer relative ${getSizeClasses(
+                  feature.size
+                )}`}
+              >
+                <div
+                  className="absolute inset-0 rounded-2xl opacity-0 hover:opacity-100 transition-opacity pointer-events-none"
+                  style={{
+                    background: `radial-gradient(circle at ${style.transform.includes("rotateY") ? "50%" : "50%"} ${style.transform.includes("rotateX") ? "50%" : "50%"}, rgba(59, 130, 246, 0.1), transparent 70%)`,
+                  }}
+                />
               <div className="mb-4">
                 {(() => {
                   const IconComponent =
@@ -98,11 +113,12 @@ export default function Features() {
               <h3 className="text-xl sm:text-2xl font-semibold mb-2">
                 {feature.title}
               </h3>
-              <p className="text-foreground/60 text-sm sm:text-base leading-relaxed">
+              <p className="text-foreground/60 text-sm sm:text-base leading-relaxed relative z-10">
                 {feature.description}
               </p>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

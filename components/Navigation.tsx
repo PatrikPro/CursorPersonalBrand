@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { content } from "@/constants/content";
 import { useState, useEffect } from "react";
+import { useMagnetic } from "@/hooks/useMagnetic";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -54,12 +55,21 @@ export default function Navigation() {
                 </li>
               ))}
             </ul>
-            <motion.a
-              href="#pricing"
-              className="relative px-4 sm:px-6 py-2 bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors text-sm sm:text-base overflow-hidden group"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            {(() => {
+              const { ref, handleMouseMove, handleMouseLeave, style } = useMagnetic({
+                distance: 10,
+              });
+
+              return (
+                <motion.a
+                  ref={ref}
+                  href="#pricing"
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  className="relative px-4 sm:px-6 py-2 bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors text-sm sm:text-base overflow-hidden group"
+                  style={style}
+                  whileTap={{ scale: 0.95 }}
+                >
               <span className="relative z-20">{content.nav.cta}</span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -z-0"
@@ -87,7 +97,9 @@ export default function Navigation() {
                   ease: "easeInOut",
                 }}
               />
-            </motion.a>
+                </motion.a>
+              );
+            })()}
           </div>
         </div>
       </div>

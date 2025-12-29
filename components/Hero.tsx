@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { content } from "@/constants/content";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import InteractiveDemo from "./InteractiveDemo";
+import { useMagnetic } from "@/hooks/useMagnetic";
 
 export default function Hero() {
   const ref = useRef(null);
@@ -68,12 +70,21 @@ export default function Hero() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 pt-4"
             >
-              <motion.a
-                href="#pricing"
-                className="relative px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors text-center overflow-hidden group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              {(() => {
+                const { ref, handleMouseMove, handleMouseLeave, style } = useMagnetic({
+                  distance: 15,
+                });
+
+                return (
+                  <motion.a
+                    ref={ref}
+                    href="#pricing"
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                    className="relative px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors text-center overflow-hidden group"
+                    style={style}
+                    whileTap={{ scale: 0.95 }}
+                  >
                 <span className="relative z-20">{content.hero.cta}</span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -z-0"
@@ -101,7 +112,9 @@ export default function Hero() {
                     ease: "easeInOut",
                   }}
                 />
-              </motion.a>
+                  </motion.a>
+                );
+              })()}
               <motion.a
                 href="#"
                 className="px-8 py-4 bg-background border border-white/20 text-foreground font-semibold rounded-full hover:border-accent/50 transition-colors text-center"
@@ -113,34 +126,14 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Product UI Screenshot Placeholder */}
+          {/* Right: Interactive Product Demo */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
-            <div className="relative bg-gradient-to-br from-accent/20 to-accent-purple/20 rounded-2xl p-8 border border-white/10 backdrop-blur-sm">
-              <div className="bg-background/50 rounded-lg border border-white/10 p-6 space-y-4">
-                {/* Mock UI elements */}
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-                </div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-accent/30 rounded w-3/4"></div>
-                  <div className="h-4 bg-accent/20 rounded w-1/2"></div>
-                  <div className="grid grid-cols-3 gap-3 pt-4">
-                    <div className="h-20 bg-accent/20 rounded"></div>
-                    <div className="h-20 bg-accent/20 rounded"></div>
-                    <div className="h-20 bg-accent/20 rounded"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Decorative gradient */}
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent/10 blur-3xl rounded-full"></div>
+            <InteractiveDemo />
           </motion.div>
         </div>
       </div>
