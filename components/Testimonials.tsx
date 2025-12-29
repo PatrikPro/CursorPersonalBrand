@@ -97,7 +97,9 @@ export default function Testimonials() {
                             {renderStars(testimonial.rating)}
                           </div>
                           <p className="text-lg sm:text-xl text-foreground/90 leading-relaxed mb-6">
-                            "{testimonial.quote}"
+                            <span>&ldquo;</span>
+                            {testimonial.quote}
+                            <span>&rdquo;</span>
                           </p>
                         </div>
                         <div className="flex items-center gap-4">

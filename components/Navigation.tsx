@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { content } from "@/constants/content";
 import { useState, useEffect } from "react";
-import { useMagnetic } from "@/hooks/useMagnetic";
+import MagneticButton from "./MagneticButton";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -55,51 +55,15 @@ export default function Navigation() {
                 </li>
               ))}
             </ul>
-            {(() => {
-              const { ref, handleMouseMove, handleMouseLeave, style } = useMagnetic({
-                distance: 10,
-              });
-
-              return (
-                <motion.a
-                  ref={ref}
-                  href="#pricing"
-                  onMouseMove={handleMouseMove}
-                  onMouseLeave={handleMouseLeave}
-                  className="relative px-4 sm:px-6 py-2 bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors text-sm sm:text-base overflow-hidden group"
-                  style={style}
-                  whileTap={{ scale: 0.95 }}
-                >
-              <span className="relative z-20">{content.nav.cta}</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -z-0"
-                animate={{
-                  x: ["-100%", "100%"],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 3,
-                  ease: "linear",
-                }}
-              />
-              <motion.div
-                className="absolute inset-0 bg-accent rounded-full -z-10"
-                animate={{
-                  boxShadow: [
-                    "0 0 0px rgba(59, 130, 246, 0)",
-                    "0 0 15px rgba(59, 130, 246, 0.4)",
-                    "0 0 0px rgba(59, 130, 246, 0)",
-                  ],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 2,
-                  ease: "easeInOut",
-                }}
-              />
-                </motion.a>
-              );
-            })()}
+            <MagneticButton
+              href="#pricing"
+              className="px-4 sm:px-6 py-2 bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors text-sm sm:text-base"
+              distance={10}
+              shimmer={true}
+              glow={true}
+            >
+              {content.nav.cta}
+            </MagneticButton>
           </div>
         </div>
       </div>

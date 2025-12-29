@@ -5,7 +5,7 @@ import { content } from "@/constants/content";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import InteractiveDemo from "./InteractiveDemo";
-import { useMagnetic } from "@/hooks/useMagnetic";
+import MagneticButton from "./MagneticButton";
 
 export default function Hero() {
   const ref = useRef(null);
@@ -70,51 +70,15 @@ export default function Hero() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 pt-4"
             >
-              {(() => {
-                const { ref, handleMouseMove, handleMouseLeave, style } = useMagnetic({
-                  distance: 15,
-                });
-
-                return (
-                  <motion.a
-                    ref={ref}
-                    href="#pricing"
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseLeave}
-                    className="relative px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors text-center overflow-hidden group"
-                    style={style}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                <span className="relative z-20">{content.hero.cta}</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -z-0"
-                  animate={{
-                    x: ["-100%", "100%"],
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 3,
-                    ease: "linear",
-                  }}
-                />
-                <motion.div
-                  className="absolute inset-0 bg-accent rounded-full -z-10"
-                  animate={{
-                    boxShadow: [
-                      "0 0 0px rgba(59, 130, 246, 0)",
-                      "0 0 20px rgba(59, 130, 246, 0.5)",
-                      "0 0 0px rgba(59, 130, 246, 0)",
-                    ],
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 2,
-                    ease: "easeInOut",
-                  }}
-                />
-                  </motion.a>
-                );
-              })()}
+              <MagneticButton
+                href="#pricing"
+                className="px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent/90 transition-colors text-center"
+                distance={15}
+                shimmer={true}
+                glow={true}
+              >
+                {content.hero.cta}
+              </MagneticButton>
               <motion.a
                 href="#"
                 className="px-8 py-4 bg-background border border-white/20 text-foreground font-semibold rounded-full hover:border-accent/50 transition-colors text-center"
