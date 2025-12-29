@@ -25,51 +25,93 @@ export default function MagneticButton({
     distance,
   });
 
-  const Component = href ? motion.a : motion.button;
-  const props = href ? { href } : {};
+  if (href) {
+    return (
+      <motion.a
+        ref={ref as React.Ref<HTMLAnchorElement>}
+        href={href}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className={`relative overflow-hidden group ${className}`}
+        style={style}
+        whileTap={{ scale: 0.95 }}
+      >
+        <span className="relative z-20">{children}</span>
+        {shimmer && (
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -z-0"
+            animate={{
+              x: ["-100%", "100%"],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 3,
+              ease: "linear",
+            }}
+          />
+        )}
+        {glow && (
+          <motion.div
+            className="absolute inset-0 bg-accent rounded-full -z-10"
+            animate={{
+              boxShadow: [
+                "0 0 0px rgba(59, 130, 246, 0)",
+                "0 0 20px rgba(59, 130, 246, 0.5)",
+                "0 0 0px rgba(59, 130, 246, 0)",
+              ],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              ease: "easeInOut",
+            }}
+          />
+        )}
+      </motion.a>
+    );
+  }
 
   return (
-    <Component
-      ref={ref}
+    <motion.button
+      ref={ref as React.Ref<HTMLButtonElement>}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={`relative overflow-hidden group ${className}`}
       style={style}
       whileTap={{ scale: 0.95 }}
-      {...props}
     >
-      <span className="relative z-20">{children}</span>
-      {shimmer && (
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -z-0"
-          animate={{
-            x: ["-100%", "100%"],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 3,
-            ease: "linear",
-          }}
-        />
-      )}
-      {glow && (
-        <motion.div
-          className="absolute inset-0 bg-accent rounded-full -z-10"
-          animate={{
-            boxShadow: [
-              "0 0 0px rgba(59, 130, 246, 0)",
-              "0 0 20px rgba(59, 130, 246, 0.5)",
-              "0 0 0px rgba(59, 130, 246, 0)",
-            ],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 2,
-            ease: "easeInOut",
-          }}
-        />
-      )}
-    </Component>
-  );
-}
+        <span className="relative z-20">{children}</span>
+        {shimmer && (
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -z-0"
+            animate={{
+              x: ["-100%", "100%"],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 3,
+              ease: "linear",
+            }}
+          />
+        )}
+        {glow && (
+          <motion.div
+            className="absolute inset-0 bg-accent rounded-full -z-10"
+            animate={{
+              boxShadow: [
+                "0 0 0px rgba(59, 130, 246, 0)",
+                "0 0 20px rgba(59, 130, 246, 0.5)",
+                "0 0 0px rgba(59, 130, 246, 0)",
+              ],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              ease: "easeInOut",
+            }}
+          />
+        )}
+      </motion.button>
+    );
+  }
 
